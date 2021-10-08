@@ -38,7 +38,7 @@ pipeline {
         
         stage('Docker deploy'){
             steps {
-               
+               sh 'sudo systemctl restart docker'
                 sh 'docker run -itd -p  8081:8080 icatdocker/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
