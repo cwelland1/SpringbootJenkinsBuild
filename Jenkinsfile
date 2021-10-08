@@ -17,7 +17,6 @@ pipeline {
 
         stage('Build Docker image'){
             steps {
-              sh 'systemctl restart docker'
                 sh 'docker build -t  icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
         }
