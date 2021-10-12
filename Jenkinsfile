@@ -31,14 +31,14 @@ pipeline {
         stage('Deploy to UAT'){
             
             steps {
-                 
                echo "test"
             }                
         }
 
         stage('Functional Testing'){
             steps {
-                 echo "test"
+                echo "test"
+                sleep 5
             }
         }
         
