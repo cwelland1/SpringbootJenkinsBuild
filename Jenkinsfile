@@ -31,18 +31,19 @@ pipeline {
             
             steps {
                  
-              
+               echo "test"
             }                
         }
 
         stage('Functional Testing'){
             steps {
+                 echo "test"
             }
         }
         
         stage('Deploy to Prod'){
             steps {
-            
+             echo "test"
             }
         }
 
