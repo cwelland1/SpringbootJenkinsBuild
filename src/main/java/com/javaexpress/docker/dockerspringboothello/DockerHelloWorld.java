@@ -11,6 +11,6 @@ public class DockerHelloWorld {
 	@GetMapping
 	public String getName() {
 		
-		return "DOED TEST";
+		return "index.html";
 	}
 }
