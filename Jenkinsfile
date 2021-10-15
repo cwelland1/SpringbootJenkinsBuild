@@ -21,28 +21,21 @@ pipeline {
         }
     }
 
-        stage('Testing'){
+        stage('Functional Testing'){
             steps {
                echo "test"
                 sleep 4
             }
         }
 
-        stage('Deploy to UAT'){
-            
-            steps {
-               echo "test"
-            }                
-        }
-
-        stage('Functional Testing'){
+           stage(' Security Testing'){
             steps {
                 echo "test"
                 sleep 5
             }
         }
         
-        stage('Deploy to Prod'){
+        stage('Deploy to UAT'){
             steps {
              echo "test"
             }
