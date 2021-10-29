@@ -38,13 +38,12 @@ pipeline {
             }
         }
         
-           stage(' Approval by Release Manager'){
-            steps {
+           stage(' Deploy to UAT  (Docker)'){
 	    input {
-message "Do you want to Proceed or Abort the deployment"
+message "Approval by Release Manager-Do you want to Proceed or Abort the deployment"
 }
 	    }
-	   }
+	   
         stage('Deploy to UAT  (Docker)'){
             steps {
              echo "UAT Deployment in Progress"
