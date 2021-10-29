@@ -31,18 +31,13 @@ pipeline {
 	            }
 	        }
 
-           stage(' Security Testing  (SonarQube)'){
+           stage('Security Testing  (SonarQube)'){
             steps {
                 echo "test"
                 sleep 5
             }
         }
         
-           stage('Deploy to UAT  (Docker)'){
-	    input {
-		    message "Approval by Release Manager-Do you want to Proceed or Abort the deployment"
-		}
-	    }
         stage('Deploy to UAT  (Docker)'){
             steps {
              echo "UAT Deployment in Progress"
@@ -57,6 +52,9 @@ pipeline {
             }
         }
       stage('Deploy to Production  (Docker)'){
+	      input {
+			message "Do you want to Proceed or Abort the deployment"
+		}
             steps {
              echo "UAT Deployment in Progress"
 //		bat "mvn package"
