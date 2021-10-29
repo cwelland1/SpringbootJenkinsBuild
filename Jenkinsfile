@@ -38,6 +38,13 @@ pipeline {
             }
         }
         
+           stage(' Approval by Release Manager'){
+            steps {
+	    input {
+message "Do you want to Proceed or Abort the deployment"
+}
+	    }
+	   }
         stage('Deploy to UAT  (Docker)'){
             steps {
              echo "UAT Deployment in Progress"
@@ -51,7 +58,19 @@ pipeline {
 //            }
             }
         }
-
+      stage('Deploy to Production  (Docker)'){
+            steps {
+             echo "UAT Deployment in Progress"
+//		bat "mvn package"
+//                bat "docker build -t  icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} ."
+//                  withCredentials([string(credentialsId: 'Dockerid', variable: 'Dockerpwd')]) {
+//                bat "docker login -u icatdocker -p ${Dockerpwd}"
+//                bat "docker push icatdocker/docker_jenkins_springboot:${BUILD_NUMBER}"
+	        bat "docker rm -f jenkinsciuat"
+                bat "docker run --name jenkinsciuat -itd -p 8084:8080 icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} nginx ."
+//            }
+            }
+        }
         
         stage('Archiving') { 
             steps {
