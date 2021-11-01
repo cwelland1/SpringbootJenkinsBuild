@@ -74,13 +74,12 @@ pipeline {
                 bat "docker run --name jenkinsciuat -itd -p 8084:8080 icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} nginx ."
 //            }
             }
-        }
 	     post {
         always {
             emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
     }
-        
+      }   
         stage('Archiving') { 
             steps {
 //                 archiveArtifacts '**/target/*.jar'
