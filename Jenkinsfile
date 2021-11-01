@@ -53,7 +53,7 @@ pipeline {
         }
 	    stage('Approval by Release Manager'){
 	      input {
-			message "Do you want to Proceed or Abort the deployment"
+			message "Proceed (If ERB Decision Memo Approved Go Live)"
 		}
             steps {
 		    sleep 2
