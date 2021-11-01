@@ -51,10 +51,18 @@ pipeline {
 //            }
             }
         }
-      stage('Deploy to Production  (Docker)'){
+	    stage('Approval by Release Manager'){
 	      input {
-			message "Release Manager-Do you want to Proceed or Abort the deployment"
+			message "Do you want to Proceed or Abort the deployment"
 		}
+            steps {
+		    sleep 2
+	    }
+	    }
+      stage('Deploy to Production  (Docker)'){
+	    //  input {
+		//	message "Release Manager-Do you want to Proceed or Abort the deployment"
+		//}
             steps {
              echo "UAT Deployment in Progress"
 //		bat "mvn package"
