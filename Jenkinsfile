@@ -49,6 +49,12 @@ pipeline {
 	        bat "docker rm -f jenkinsciuat"
                 bat "docker run --name jenkinsciuat -itd -p 8083:8080 icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} nginx ."
 //            }
+            }	
+        }
+	            stage('Email Notofication to Release Manager') { 
+          steps {
+          mail bcc: '', body: '''Hello,
+Please     approve / reject CI/CD Pipeline.''', cc: 'chris.welland@icatalystinc.com', from: '', replyTo: '', subject: 'Pl Approve / Reject the release in CI?CD Pipeline', to: 'simit@icatalystinc.com'
             }
         }
 	    stage('Approval by Release Manager'){
