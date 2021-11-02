@@ -54,7 +54,7 @@ pipeline {
 	            stage('Email Notofication to Release Manager') { 
           steps {
           mail bcc: '', body: '''Hello,
-Please     approve / reject CI/CD Pipeline.''', cc: 'chris.welland@icatalystinc.com', from: '', replyTo: '', subject: 'Pl Approve / Reject the release in CI?CD Pipeline', to: 'simit@icatalystinc.com'
+Please     approve / reject CI/CD Pipeline.''', cc: 'chris.welland@icatalystinc.com', from: '', replyTo: '', subject: 'Pl Approve / Reject the release in CI/CD Pipeline', to: 'simit@icatalystinc.com'
             }
         }
 	    stage('Approval by Release Manager'){
