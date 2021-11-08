@@ -35,7 +35,7 @@ pipeline {
 steps {
 	git 'https://github.com/cwelland1/SpringbootJenkinsBuild.git'
 withSonarQubeEnv('sonarQube') {
-bat(/mvn sonar:sonar)
+bat(/mvn sonar:sonar/)
 echo "test"
 }
 }
