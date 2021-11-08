@@ -39,8 +39,7 @@ withSonarQubeEnv('SonarQube')
  {
 
 
-bat 
-"mvn clean package sonar:sonar -Dsonar.login=cfb1a2c3b5624f88fc689d4027cb1e564f463039"
+bat "mvn clean package sonar:sonar -Dsonar.login=cfb1a2c3b5624f88fc689d4027cb1e564f463039"
 
 
 }
@@ -65,14 +64,10 @@ stage("Quality gate")
 steps {
 
 
-timeout(time:
-1, 
-unit: 'MINUTES') {
+timeout(time:1, unit: 'MINUTES') {
 
 
-waitForQualityGate
-abortPipeline: 
-true
+waitForQualityGate abortPipeline: true
 
 
 
