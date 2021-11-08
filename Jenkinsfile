@@ -34,7 +34,7 @@ pipeline {
            stage(' Security Testing (SonarQube)'){
 steps {
 	git 'https://github.com/cwelland1/SpringbootJenkinsBuild.git'
-withSonarQubeEnv('sonarQube') {
+withSonarQubeEnv('SonarQube') {
 bat(/mvn sonar:sonar/)
 echo "test"
 }
