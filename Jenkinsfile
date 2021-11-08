@@ -1,5 +1,8 @@
 pipeline {
-    agent any 
+    agent any
+	environment {
+		PATH= "C:\Users\SimitBhattacharyya\Downloads\apache-maven-3.8.3-bin\apache-maven-3.8.3"
+	}
     stages {
         stage('Compile and Build  (Maven)') { 
             steps {
