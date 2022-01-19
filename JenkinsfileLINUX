@@ -8,7 +8,7 @@ pipeline {
         }
        
 
-        stage('Deploy to Dev') { 
+        stage('Deploy to Dev   (Docker)') { 
             steps {
                 sh "mvn package"
                 sh 'docker build -t  icatdocker/docker_jenkins_springboot:${BUILD_NUMBER} .'
@@ -21,28 +21,28 @@ pipeline {
         }
     }
 
-        stage('Functional Testing'){
+        stage('Functional Testing   (Selenium)'){
             steps {
                echo "test"
                 sleep 4
             }
         }
 
-           stage(' Security Testing'){
+           stage(' Security Testing (SonarQube)'){
             steps {
                 echo "test"
                 sleep 5
             }
         }
         
-        stage('Deploy to UAT'){
+        stage('Deploy to UAT  (Docker)'){
             steps {
              echo "test"
             }
         }
 
         
-        stage('Archving') { 
+        stage('Archving (Jenkins)') { 
             steps {
                  archiveArtifacts '**/target/*.jar'
             }
