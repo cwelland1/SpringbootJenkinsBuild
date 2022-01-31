@@ -21,12 +21,15 @@ pipeline {
         }
     }
 
-        stage('Functional Testing   (Selenium)'){
-            steps {
-               echo "test"
-                sleep 4
-            }
-        }
+        	 stage('Functional Testing   (Selenium)'){
+	  steps {
+	         echo "test"
+                 git 'https://github.com/simitaws/Selenium-Course.git'
+	         script {
+		        sh (/mvn clean test/)
+			    }
+	            }
+	        }
 
            stage(' Security Testing (SonarQube)'){
             steps {
