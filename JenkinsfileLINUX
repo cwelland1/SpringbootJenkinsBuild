@@ -23,21 +23,36 @@ pipeline {
 
         	 stage('Functional Testing   (Selenium)'){
 	  steps {
-	         echo "test"
-                 git 'https://github.com/simitaws/Selenium-Course.git'
-	         script {
-		        sh (/mvn clean test/)
+	      //   echo "test"
+              //   git 'https://github.com/simitaws/Selenium-Course.git'
+	     //    script {
+		//        sh (/mvn clean test/)
 			    }
 	            }
 	        }
 
-           stage(' Security Testing (SonarQube)'){
-            steps {
-                echo "test"
-                sleep 5
-            }
-        }
-        
+    stage(' Security Testing (SonarQube)'){
+
+
+steps {
+
+git 'https://github.com/cwelland1/SpringbootJenkinsBuild.git'
+withSonarQubeEnv('SonarQube')
+ {
+
+
+bat "mvn clean package sonar:sonar -Dsonar.login=cfb1a2c3b5624f88fc689d4027cb1e564f463039"
+
+
+}
+
+
+}
+
+
+}
+
+
         stage('Deploy to UAT  (Docker)'){
             steps {
              echo "test"
