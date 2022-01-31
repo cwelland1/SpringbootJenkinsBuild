@@ -23,7 +23,7 @@ pipeline {
 
         	 stage('Functional Testing   (Selenium)'){
 	  steps {
-	      //   echo "test"
+	        echo "test"
               //   git 'https://github.com/simitaws/Selenium-Course.git'
 	     //    script {
 		//        sh (/mvn clean test/)
